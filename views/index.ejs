@@ -1,0 +1,60 @@
+<% include partials/header %>
+	<h1>Add Student</h1>
+	<% if(errors != undefined){ %>
+		<ul>
+		<% errors.forEach(function(error){ %>
+			<li><%= error.msg %> </li>
+		<% }) %>
+		</ul>
+	<% } %>
+	<form method="POST" action="/students/add">
+		<label>First Name</label><br>
+		<input type="text" name ="FirstName">
+		<br>
+		<label>Last Name</label><br>
+		<input type="text" name="LastName">
+		<br>
+		<label>Preferred Name</label><br>
+		<input type="text" name="PreferredName">
+		<br>
+		<label>Team Name</label><br>
+		<input type="text" name="TeamName">
+		<br>
+		<label>Seat Location</label><br>
+		<input type="text" name="SeatLocation">
+		<br>
+		<label>Role</label><br>
+		<input type="text" name="Role">
+		<br><br>
+		<input type="submit" value="Submit">
+	</form>
+	<h1><%= title %></h1>
+	<ul>
+	<% students.forEach(function(student){ %>
+		<li><%= student.FirstName %> <%= student.LastName %>, aka <%= student.PreferredName %> ~~ Team: <%= student.TeamName %> ~~ Seat No: <%= student.SeatLocation%> ~~ Role: <%= student.Role%>. - 
+		<a href="#" class="deleteStudent" data-id="<%= student._id %>">Delete</a></li>
+	<% }) %>
+	</ul>
+	<div align="center">
+		<h1>Team Ocelots Group JSON Information</h1>
+			<a href="https://teamocelots-klump-product.azurewebsites.net/theocelotsteam.json">Group Info</a>
+
+		<h2>Individual Team Member JSON Information</h2>
+			<a href="https://michael-pedzimaz-webapp.azurewebsites.net/my-information.json">Mike's info</a></br>
+			<a href= "https://jakeisalsoclueless.azurewebsites.net/myinformation.json">Jake's info</a></br>
+			<a href="https://riotjuice.azurewebsites.net/my-information.json">Julian's info</a></br>
+			<a href="https://softwareengjmh.azurewebsites.net/format.JSON">Jace's info</a></br>
+			<a href="https://newtestdocument.azurewebsites.net/Format.json">Thad's info</a></br>
+
+			<!--<input type="button" onclick="" value="Mike's Information  ">
+			<input type="button" onclick="" value="Jake's Information  ">
+			<input type="button" onclick="" value="Julian's Information">
+			<input type="button" onclick="" value="Jace's Information  ">
+			<input type="button" onclick="" value="Thad's Information ">
+			<br><br>
+			-->
+	</div>
+	
+<% include partials/footer %>
+
+
